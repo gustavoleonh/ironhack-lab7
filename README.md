@@ -3,15 +3,18 @@
 ### Design Challenges:
 
 **Scenario Description:** Participants are provided with a series of common software design challenges. They will need to choose appropriate design patterns to solve these specific problems effectively.
+
 <br>
+
 * <span class="colour" style="color:rgb(204, 204, 204)">**Global Configuration Management:** Design a system that ensures a single, globally accessible configuration object without access conflicts.</span>
 * <span class="colour" style="color:rgb(204, 204, 204)">**Dynamic Object Creation Based on User Input:** Implement a system to dynamically create various types of user interface elements based on user actions.</span>
 * <span class="colour" style="color:rgb(204, 204, 204)">**State Change Notification Across System Components:** Ensure components are notified about changes in the state of other parts without creating tight coupling.</span>
 * <span class="colour" style="color:rgb(204, 204, 204)">**Efficient Management of Asynchronous Operations:** Manage multiple asynchronous operations like API calls which need to be coordinated without blocking the main application workflow.</span>
 
-###### **Project outline simulation:**
-<br>
+#### Project outline simulation:
+
 <span class="colour" style="color:rgb(204, 204, 204)">**a) Global Configuration Management:** </span>
+
 **Solution:** Use the Singleton Pattern. This pattern ensures that a class has only one instance and provides a global point of access to it.
 
 ``` java
@@ -43,7 +46,7 @@ public class ConfigurationManager {
 
 Additional in frameworks like spring boot, we have an stereotype that could be used to define config classess "@Configuration"
 
-<span class="colour" style="color:rgb(204, 204, 204)">**Dynamic Object Creation Based on User Input:**</span>
+<span class="colour" style="color:rgb(204, 204, 204)">**b) Dynamic Object Creation Based on User Input:**</span>
 **Solution:** Use the Factory Pattern. This pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.
 
 <br>
@@ -90,7 +93,8 @@ public class Main {
 ```
 <br>
 <br>
-<span class="colour" style="color:rgb(204, 204, 204)">**State Change Notification Across System Components:**</span>
+
+<span class="colour" style="color:rgb(204, 204, 204)">**c) State Change Notification Across System Components:**</span>
 **Solution:** Use the Observer Pattern. This pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
 <br>
@@ -153,7 +157,8 @@ public class Main {
 }
 ```
 <br>
-<span class="colour" style="color:rgb(204, 204, 204)">**Efficient Management of Asynchronous Operations:**</span>
+
+<span class="colour" style="color:rgb(204, 204, 204)">**d) Efficient Management of Asynchronous Operations:**</span>
 **Solution:** Use the Future/Promise Pattern. This pattern is used for managing the results of asynchronous operations.
 
 <br>
