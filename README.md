@@ -63,10 +63,10 @@ public class Button implements UIElement {
     }
 }
 
-public class TextField implements UIElement {
+public class Slider implements UIElement {
     @Override
     public void render() {
-        System.out.println("Render a text field");
+        System.out.println("Render a slider");
     }
 }
 
@@ -75,21 +75,14 @@ public class UIElementFactory {
         switch (type) {
             case "button":
                 return new Button();
-            case "textField":
-                return new TextField();
+            case "slider":
+                return new Slider();
             default:
                 throw new IllegalArgumentException("Unknown UI element type");
         }
     }
 }
 
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        UIElement element = UIElementFactory.createUIElement("button");
-        element.render();
-    }
-}
 ```
 <br>
 <br>
@@ -103,7 +96,7 @@ public class Main {
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subject {
+public class Device {
     private List<Observer> observers = new ArrayList<>();
     private String state;
 
@@ -120,7 +113,7 @@ public class Subject {
         observers.add(observer);
     }
 
-    public void notifyAllObservers() {
+    private void notifyAllObservers() {
         for (Observer observer : observers) {
             observer.update();
         }
@@ -128,33 +121,22 @@ public class Subject {
 }
 
 public abstract class Observer {
-    protected Subject subject;
+    protected Device device;
     public abstract void update();
 }
 
-public class ConcreteObserver extends Observer {
-    public ConcreteObserver(Subject subject) {
-        this.subject = subject;
-        this.subject.attach(this);
+public class MobileApp extends Observer {
+    public MobileApp(Device device) {
+        this.device = device;
+        this.device.attach(this);
     }
 
     @Override
     public void update() {
-        System.out.println("State changed to: " + subject.getState());
+        System.out.println("Device state changed to: " + device.getState());
     }
 }
 
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        Subject subject = new Subject();
-
-        new ConcreteObserver(subject);
-        new ConcreteObserver(subject);
-
-        subject.setState("New State");
-    }
-}
 ```
 <br>
 
@@ -170,23 +152,23 @@ import java.util.concurrent.ExecutionException;
 public class AsyncOperations {
     public static void main(String[] args) {
         CompletableFuture<String> apiCall1 = CompletableFuture.supplyAsync(() -> {
-            // Simulate API call 1
+            // Simulate API call to turn on the lights
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return "Result from API call 1";
+            return "Lights turned on";
         });
 
         CompletableFuture<String> apiCall2 = CompletableFuture.supplyAsync(() -> {
-            // Simulate API call 2
+            // Simulate API call to adjust the thermostat
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return "Result from API call 2";
+            return "Thermostat adjusted";
         });
 
         CompletableFuture<Void> combinedFuture = CompletableFuture.allOf(apiCall1, apiCall2);
@@ -205,7 +187,12 @@ public class AsyncOperations {
         System.out.println("Main thread continues...");
     }
 }
+
 ```
 <br>
 
-These design patterns provide robust solutions for the described scenarios, ensuring maintainability and scalability of the system.
+### Project simulation and explanation how all these parts could interact together:
+
+Suppose we are building a Smart Home Automation System. This system allows users to control and monitor various aspects of their home, such as lighting, heating, security, and appliances, through a mobile application.
+
+
