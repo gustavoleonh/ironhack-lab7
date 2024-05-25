@@ -5,6 +5,7 @@
 **Scenario Description:** Participants are provided with a series of common software design challenges. They will need to choose appropriate design patterns to solve these specific problems effectively.
 
 <br>
+
 * <span class="colour" style="color:rgb(204, 204, 204)">**Global Configuration Management:** Design a system that ensures a single, globally accessible configuration object without access conflicts.</span>
 * <span class="colour" style="color:rgb(204, 204, 204)">**Dynamic Object Creation Based on User Input:** Implement a system to dynamically create various types of user interface elements based on user actions.</span>
 * <span class="colour" style="color:rgb(204, 204, 204)">**State Change Notification Across System Components:** Ensure components are notified about changes in the state of other parts without creating tight coupling.</span>
@@ -49,6 +50,7 @@ Additional in frameworks like spring boot, we have an stereotype that could be u
 **Solution:** Use the Factory Pattern. This pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.
 
 <br>
+
 ``` java
 public interface UIElement {
     void render();
@@ -81,13 +83,14 @@ public class UIElementFactory {
     }
 }
 ```
+
 <br>
-<br>
-<br>
+
 <span class="colour" style="color:rgb(204, 204, 204)">**c) State Change Notification Across System Components:**</span>
 **Solution:** Use the Observer Pattern. This pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 
 <br>
+
 ``` java
 import java.util.ArrayList;
 import java.util.List;
@@ -135,10 +138,12 @@ public class MobileApp extends Observer {
 ```
 <br>
 <br>
+
 <span class="colour" style="color:rgb(204, 204, 204)">**d) Efficient Management of Asynchronous Operations:**</span>
 **Solution:** Use the Future/Promise Pattern. This pattern is used for managing the results of asynchronous operations.
 
 <br>
+
 ``` java
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -183,13 +188,14 @@ public class AsyncOperations {
 }
 ```
 <br>
+
 ### Project simulation and explanation how all these parts could interact together:
 <br>
+
 Suppose we are building a Smart Home Automation System. This system allows users to control and monitor various aspects of their home, such as lighting, heating, security, and appliances, through a mobile application.
-<br>
 * **Singleton Pattern (ConfigurationManager):** Ensures that configuration settings are managed globally without conflicts. This is crucial for consistent behavior across the system.
 * **Factory Pattern (UIElementFactory):** Allows the system to create various UI elements based on user input dynamically, enhancing flexibility and user experience.
 * **Observer Pattern (Device and MobileApp):** Enables real-time updates and synchronization across different components of the system without tight coupling, ensuring that state changes in devices are propagated to the mobile app and other components efficiently.
 * **Future/Promise Pattern (AsyncOperations):** Manages asynchronous API calls to different smart devices, ensuring that the main application workflow is not blocked and results are handled once all operations are complete.
 
-<span class="colour" style="color: rgb(13, 13, 13);">This integrated use of design patterns ensures that the Smart Home Automation System is robust, flexible, and scalable, capable of handling complex interactions and real-time updates effectively.</span>
+This integrated use of design patterns ensures that the Smart Home Automation System is robust, flexible, and scalable, capable of handling complex interactions and real-time updates effectively.
