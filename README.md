@@ -199,3 +199,7 @@ Suppose we are building a Smart Home Automation System. This system allows users
 * **Future/Promise Pattern (AsyncOperations):** Manages asynchronous API calls to different smart devices, ensuring that the main application workflow is not blocked and results are handled once all operations are complete.
 
 This integrated use of design patterns ensures that the Smart Home Automation System is robust, flexible, and scalable, capable of handling complex interactions and real-time updates effectively.
+
+Finally, find below a repo with a mid real project that i worked in the past in an ironhack challenge which contains applied all these concepts (and more).
+
+https://github.com/gustavoleonh/infinitygrowth
